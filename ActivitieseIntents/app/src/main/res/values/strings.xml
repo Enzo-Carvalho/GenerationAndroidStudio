@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Activities e Intents</string>
+    <string name="button">Button</string>
+    <string name="voltar">Voltar</string>
+</resources>
