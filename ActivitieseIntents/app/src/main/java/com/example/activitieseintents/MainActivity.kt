@@ -10,9 +10,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d("Ciclo", "onCreate")
 
-        val buttonNext = findViewById<Button>(R.id.buttonNext)
+        val buttonNext = findViewById<Button>(R.id.button)
 
         val intentSegunda = Intent(this, SegundaActivity::class.java)
 
@@ -21,13 +20,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.d("Ciclo", "onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d("Ciclo", "onResume")
-    }
 }
