@@ -21,6 +21,8 @@ class ProdutoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        binding = FragmentProdutoBinding.inflate(layoutInflater, container, false)
+
         val listProduto = listOf<Produto>(
             Produto(
                 "Sabonete",
@@ -62,7 +64,6 @@ class ProdutoFragment : Fragment() {
 
         adapter.setList(listProduto)
 
-        binding = FragmentProdutoBinding.inflate(layoutInflater, container, false)
 
         binding.floatingAdd.setOnClickListener {
             findNavController().navigate(R.id.action_produtoFragment_to_formFragment)
