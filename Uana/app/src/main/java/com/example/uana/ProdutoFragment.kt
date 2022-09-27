@@ -64,7 +64,6 @@ class ProdutoFragment : Fragment() {
 
         adapter.setList(listProduto)
 
-
         binding.floatingAdd.setOnClickListener {
             findNavController().navigate(R.id.action_produtoFragment_to_formFragment)
         }

@@ -26,10 +26,10 @@ class ProdutoAdapter : RecyclerView.Adapter<ProdutoAdapter.ProdutoViewHolder>(
         val produto = listProduto[position]
         holder.binding.textNome.text = produto.nome
         holder.binding.textDescricao.text = produto.descricao
-        holder.binding.textCodigoProduto.inputType = produto.codigoProduto
+        holder.binding.textCodigoProduto.text = produto.codigoProduto.toString()
         holder.binding.textPreco.text = produto.preco
         holder.binding.textImagemProduto.text = produto.imagemProduto
-        holder.binding.textEstoque.inputType = produto.estoque
+        holder.binding.textEstoque.text = produto.estoque.toString()
         holder.binding.textCategoria.text = produto.categoria
     }
 
