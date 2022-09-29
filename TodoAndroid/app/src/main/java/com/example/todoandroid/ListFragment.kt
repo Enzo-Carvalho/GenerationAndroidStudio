@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todoandroid.adapter.TarefaAdapter
 import com.example.todoandroid.databinding.FragmentListBinding
+import com.example.todoandroid.model.Categoria
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListFragment : Fragment() {
@@ -22,41 +23,12 @@ class ListFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentListBinding.inflate(layoutInflater, container, false)
 
-
-        val listTarefas = listOf(
-            Tarefa(
-                "Lavar a louça",
-                "Lavar a louça o dia todo",
-                "Enzo",
-                "2022-09-26",
-                false,
-                "Dia a Dia"
-            ),
-            Tarefa(
-                "Lavar o carro",
-                "Lavar o carro",
-                "Enzo",
-                "2022-09-26",
-                false,
-                "Dia a Dia"
-            ),
-            Tarefa(
-                "Fazer o almoço",
-                "preparar a comida do 12h",
-                "Enzo",
-                "2022-09-26",
-                false,
-                "Dia a Dia"
-            ),
-
-        )
         //Configuração do RecyclerView
         val adapter = TarefaAdapter()
         binding.recyclerTarefa.layoutManager = LinearLayoutManager(context)
         binding.recyclerTarefa.adapter = adapter
         binding.recyclerTarefa.setHasFixedSize(true)
 
-        adapter.setList(listTarefas)
 
         binding.floatingAdd.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_formFragment)
