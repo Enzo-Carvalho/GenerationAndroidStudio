@@ -10,6 +10,7 @@ import com.example.todoandroid.model.Categoria
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import java.time.LocalDate
 import javax.inject.Inject
 
 
@@ -25,9 +26,8 @@ class MainViewModel @Inject constructor (
     val myCategoriaResponse: LiveData<Response<List<Categoria>>> =
         _myCategoriaResponse
 
-    init {
-        listCategoria()
-    }
+    val dataSelecionada = MutableLiveData<LocalDate>()
+
 
     fun listCategoria(){
         viewModelScope.launch {
@@ -39,6 +39,15 @@ class MainViewModel @Inject constructor (
                 Log.d("Erro", e.message.toString())
             }
         }
+    }
 
+    fun addTarefa(tarefa: Tarefa){
+        viewModelScope.launch {
+            try {
+                repository.addTarefa(tarefa)
+            }catch (e: Exception){
+                Log.d("Erro", e.message.toString())
+            }
+        }
     }
 }

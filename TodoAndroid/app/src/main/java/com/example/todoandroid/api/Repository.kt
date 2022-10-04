@@ -1,5 +1,6 @@
 package com.example.todoandroid.api
 
+import com.example.todoandroid.Tarefa
 import com.example.todoandroid.model.Categoria
 import retrofit2.Response
 
@@ -9,5 +10,8 @@ class Repository {
         return RetrofitInstance.api.listCategoria()
     }
 
+    suspend fun addTarefa(tarefa: Tarefa): Response<Tarefa>{
+        return RetrofitInstance.api.addTarefa(tarefa)
+    }
 
 }
