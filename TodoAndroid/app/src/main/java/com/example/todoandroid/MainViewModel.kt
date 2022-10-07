@@ -26,6 +26,12 @@ class MainViewModel @Inject constructor (
     val myCategoriaResponse: LiveData<Response<List<Categoria>>> =
         _myCategoriaResponse
 
+    private val _myTarefaResponse =
+        MutableLiveData<Response<List<Tarefa>>>()
+
+    val myTarefaResponse: LiveData<Response<List<Tarefa>>> =
+        _myTarefaResponse
+
     val dataSelecionada = MutableLiveData<LocalDate>()
 
 
@@ -45,6 +51,18 @@ class MainViewModel @Inject constructor (
         viewModelScope.launch {
             try {
                 repository.addTarefa(tarefa)
+            }catch (e: Exception){
+                Log.d("Erro", e.message.toString())
+            }
+        }
+    }
+
+    fun listTarefa(){
+        viewModelScope.launch {
+            try{
+                val response = respository.listTarefa()
+                _myTarefaResponse.value = reponse
+
             }catch (e: Exception){
                 Log.d("Erro", e.message.toString())
             }
